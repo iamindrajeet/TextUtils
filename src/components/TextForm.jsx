@@ -15,13 +15,11 @@ export default function TextForm({ heading, mode , showAlert}) {
     showAlert("converted to UpperCase", "success");
   };
 
-  const calculateLength = (ele) => {
-    //console.log(ele);
+  const calculateLength = () => {
     if(text === "")
     return 0;
     else{
-    const arr = text.split(" ");
-
+    const arr = text.split(/\s+/);
     return arr.filter(word => word !== '').length;
     }
   };
@@ -117,7 +115,7 @@ export default function TextForm({ heading, mode , showAlert}) {
         <h1>Your text summary</h1>
         <p>
           {" "}
-          {calculateLength(0)} words and {text.length} characters
+          {calculateLength()} words and {text.length} characters
         </p>
         <p>Time taken to read will be {0.08 * text.split(" ").length}</p>
         <h2>Preview</h2>
